@@ -2,13 +2,30 @@
 
 English | [中文](README.zh.md)
 
-This kit contains three files:
+> **Platform support**: this solution has only been verified on **Windows** so far (Edge/Chrome desktop PWA + wscript wrapper + PowerShell scripts).
+
+> **Want it done for you?** Send the text below to your AI assistant (e.g. a DeepSeek Harness agent) and it will fetch the full docs from this repository and walk you through the install:
+>
+> ```text
+> Please visit https://github.com/unfound/dsh-pwa-setup and read the full installation
+> documentation (README.md), then help me set up one-click launching for DeepSeek Harness:
+> 1. First confirm Node.js is installed (node -v and npm -v print versions); if not, guide me through installing the LTS version.
+> 2. Start the service with npx -y @deepseek-ai/dsh web (first run downloads the package); confirm http://127.0.0.1:3080/ opens.
+> 3. Guide me through installing the page as an Edge (or Chrome) PWA app to get a desktop shortcut.
+> 4. Change the desktop shortcut target to wscript.exe "<local kit folder path>\launch-dsh.vbs", keeping the original icon.
+> 5. Verify by double-clicking: when the service is not running it should start automatically, wait until HTTP is ready, then open the UI without flashing a black box; also tell me how to stop the service (Ctrl+C or close the console window).
+> Note: this solution has only been verified on Windows so far.
+> ```
+
+This kit contains five files:
 
 | File | Purpose |
 |---|---|
-| `README.md` | This document (English) |
+| `README.md` | This document (English, default) |
+| `README.zh.md` | Chinese version of this document |
 | `launch-dsh.ps1` | One-click launcher (generic: `npx @deepseek-ai/dsh web`) |
 | `launch-dsh.vbs` | No-flash wrapper for double-click (auto-locates the ps1 next to it) |
+| `DeepSeek Harness.ico` | Backed-up Edge PWA app icon (use it when changing the shortcut icon) |
 
 ---
 
@@ -80,7 +97,7 @@ Principle: change the shortcut target from "open the URL" to "run `launch-dsh.vb
    wscript.exe "C:\Users\<your username>\dsh-pwa-setup\launch-dsh.vbs"
    ```
 
-4. (Optional) **Change Icon**: click 「Change Icon」 → Browse → pick the Edge app's original `.ico`, or any icon you like.
+4. (Optional) **Change Icon**: click 「Change Icon」 → Browse → pick `DeepSeek Harness.ico` from this kit (backed up from the Edge app), or any icon you like.
 5. Click **OK**. Double-click the icon to launch everything at once.
 
 ### Stopping the service

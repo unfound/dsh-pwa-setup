@@ -4,25 +4,28 @@
 
 > **平台支持**：本方案暂时只在 **Windows** 上验证过（Edge/Chrome 桌面 PWA + wscript 包装器 + PowerShell 脚本）。
 
-> **想省事？把下面这段话直接发给你电脑上的 AI 助手（例如 DeepSeek Harness 的 agent），它会按本文档协助你完成安装：**
+> **想省事？把下面这段话直接发给你电脑上的 AI 助手（例如 DeepSeek Harness 的 agent），它会获取本仓库的完整文档并按步骤协助你安装：**
 >
 > ```text
-> 请按 dsh-pwa-setup 文件夹里的 README.zh.md 帮我完成 DeepSeek Harness 的一键启动配置：
+> 请访问 https://github.com/unfound/dsh-pwa-setup 获取完整的安装文档（README.zh.md），
+> 然后帮我完成 DeepSeek Harness 的一键启动配置：
 > 1. 先确认本机已安装 Node.js（node -v 和 npm -v 能输出版本号）；没装就指导我安装 LTS 版。
 > 2. 用 npx -y @deepseek-ai/dsh web 启动服务（首次会下载包），确认 http://127.0.0.1:3080/ 能打开。
 > 3. 指导我把网页安装为 Edge（或 Chrome）的 PWA 应用，得到桌面快捷方式。
-> 4. 把桌面快捷方式的目标改成 wscript.exe "<本文件夹路径>\launch-dsh.vbs"，保留原图标。
+> 4. 把桌面快捷方式的目标改成 wscript.exe "<本机套件文件夹路径>\launch-dsh.vbs"，保留原图标。
 > 5. 双击图标验证：服务没跑时能自动启动、等 HTTP 就绪后打开界面，且不闪黑框；并告诉我停止服务的方法（Ctrl+C 或关闭控制台窗口）。
 > 注意：本方案暂时只在 Windows 上验证过。
 > ```
 
-本套件包含三个文件：
+本套件包含四个文件：
 
 | 文件 | 作用 |
 |---|---|
 | `README.md` | 本文档的英文版（默认文档） |
+| `README.zh.md` | 本文档（中文版） |
 | `launch-dsh.ps1` | 一键启动脚本（通用版：`npx @deepseek-ai/dsh web`） |
 | `launch-dsh.vbs` | 无黑框包装器（双击用，自动定位同目录的 ps1） |
+| `DeepSeek Harness.ico` | Edge PWA 应用图标备份（改快捷方式时用作图标） |
 
 ---
 
@@ -96,7 +99,7 @@ npx -y @deepseek-ai/dsh web
    wscript.exe "C:\Users\<你的用户名>\dsh-pwa-setup\launch-dsh.vbs"
    ```
 
-4. （可选）**更改图标**：点「更改图标」→ 浏览 → 选 Edge 应用原来的 `.ico` 图标，或任意你喜欢的图标。
+4. （可选）**更改图标**：点「更改图标」→ 浏览 → 选本套件里的 `DeepSeek Harness.ico`（已从 Edge 应用备份过来），或任意你喜欢的图标。
 5. 点 **确定**。现在双击图标即可一键启动。
 
 ### 停止服务
