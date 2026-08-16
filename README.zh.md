@@ -7,7 +7,7 @@
 > **想省事？把下面这段话直接发给你电脑上的 AI 助手（例如 DeepSeek Harness 的 agent），它会获取本仓库的完整文档并按步骤协助你安装：**
 >
 > ```text
-> 请访问 https://github.com/unfound/dsh-pwa-setup 获取完整的安装文档（README.zh.md），
+> 请访问 https://github.com/unfound/dsh-pwa-setup 获取完整的安装文档（README.md），
 > 然后帮我完成 DeepSeek Harness 的一键启动配置：
 > 1. 先确认本机已安装 Node.js（node -v 和 npm -v 能输出版本号）；没装就指导我安装 LTS 版。
 > 2. 用 npx -y @deepseek-ai/dsh web 启动服务（首次会下载包），确认 http://127.0.0.1:3080/ 能打开。
