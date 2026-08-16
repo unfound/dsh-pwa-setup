@@ -29,6 +29,22 @@ This kit contains five files:
 
 ---
 
+## Why this approach? (instead of an Electron desktop app)
+
+Many tools "app-ify" their web UI by wrapping it in **Electron** (bundling a full Chromium + Node.js runtime). For a tool like DeepSeek Harness — which is **already a local service + browser UI** — Electron is overkill:
+
+| Aspect | Electron wrapper | This approach (PWA + launcher) |
+|---|---|---|
+| **Extra memory** | Each app keeps a full Chromium instance resident, **hundreds of MB** even when idle | Reuses the browser **you already have open**; extra memory is **near zero** |
+| **Disk footprint** | Hundreds of MB per app (bundled runtime) | Two scripts + one icon, **KB scale** |
+| **Install burden** | Download an installer; reinstall to upgrade | One click "Install as an app" in the browser; upgrades come with the browser |
+| **Background behavior** | App process stays resident; closing the window may leave it running | Closing the window closes the UI; the service process stays under your control (Ctrl+C / close the window) |
+| **Fits your environment** | Ships an isolated runtime, disconnected from the system | Uses the system browser — same look, fonts, proxy, and certificates as everyday browsing |
+
+**The core idea**: DeepSeek Harness's service already runs locally (`http://127.0.0.1:3080`); the browser is just its "display". Instead of wrapping it in another heavyweight runtime, let the **browser you already use** be that display — double-click the icon to bring up the local service and open the PWA window. It feels like a native app, but uses far fewer resources.
+
+---
+
 ## 0. Prerequisite: Install Node.js (required)
 
 `npx` ships with Node.js. **Without Node.js the launcher cannot run.**
